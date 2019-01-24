@@ -15,6 +15,6 @@
     "rollup-plugin-babel": "^4.3.2"
   },
   "scripts": {
-    "build": "babel src/index.js --out-file dist/index.js"
+    "build": "rollup -c rollup.config.js && babel src/index.js --out-file dist/index.js"
   }
 }
