@@ -10,6 +10,10 @@ function webWorker() {
     fallbackTimer = setTimeout(fallback, oneSecond);
   }
   function tick(now) {
+    if (fallbackTimer) {
+      clearTimeout(fallbackTimer);
+      fallbackTimer = null;
+    }
     if (!started) return;
     listOfTicks = listOfTicks.filter(timestamp => now - timestamp < oneSecond).concat(now);
     const fps = listOfTicks.length;
